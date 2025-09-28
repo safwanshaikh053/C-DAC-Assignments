@@ -1,0 +1,389 @@
+//Array Problem no- 1
+
+
+#include<iostream>
+
+using namespace std;
+int main()
+{
+  int a[50],size,index,temp; 
+  cout<<"\nEnter size of array:";
+  cin>>size;
+  
+  cout<<"\nEnter "<<size<<" elements.";
+  for(index=0;index<size;index++)
+  {
+  	cout<<"\neneter element at a["<<index<<"] :";
+  	cin>>a[index];
+  }
+
+  cout<<"\nEntered "<<size<<" elements are";
+  for(index=0;index<size;index++)
+  {
+  	cout<<"\na["<<index<<"] :"<<a[index];
+  	
+  }
+  
+  temp=a[0];   
+  
+
+  for (int i = 0; i < size - 1; i++) {
+    a[i] = a[i + 1];
+  }
+  
+  a[size-1]=temp;
+  cout<<"\nArray after rotation:";
+  for(index=0;index<size;index++)
+  {
+  	cout<<"\na["<<index<<"] :"<<a[index];
+  	
+  }
+}
+
+
+
+//Array Problem no- 3
+
+#include<iostream>
+using namespace std;
+
+int main(){
+int numbers1[3] = {1, 2, 3}, numbers2[3] = {4, 5, 6}, numbers3[6], size1=3, size2=3, size3=0;
+    for(int i = 0; i<=size1-1; i++){
+        numbers3[i] = numbers1[i];
+        cout<<numbers3[i]<<" ";
+        size3=i+1;
+    }
+    cout<<"=";
+    for(int i = size3, j=0; i < size1+size2 && j<=size2; i++ , j++){
+        numbers3[i] = numbers2[j];
+        cout<<"arr ["<<i<<"] :"<<numbers3[i]<<" ";
+    }
+}
+
+
+
+//Array Problem no- 3
+
+#include<iostream>
+using namespace std;
+int main()
+{
+  int a[50],size,index,temp; 
+  cout<<"\nEnter size of array:";
+  cin>>size;
+  
+  cout<<"\nEnter "<<size<<" elements.";
+  for(index=0;index<size;index++)
+  {
+  	cout<<"\nEnter element at a["<<index<<"] :";
+  	cin>>a[index];
+  }
+   int s=0, e=size-1;
+while (s<e){
+	temp=a[s];
+	a[s]=a[e];
+	a[e]=temp;
+	
+	s++,e--;
+}
+
+cout <<"reversed array is:";
+for(index=0;index<size;index++)
+  {
+  	cout<<a[index]<<" ";
+  }
+}
+
+
+
+//Array Problem no- 4
+
+#include<iostream>
+
+using namespace std;
+int main()
+{
+  int a[50],size,index,large,sec_last; 
+ 
+  cout<<"\nEnter size of array:";
+  cin>>size;
+  
+  cout<<"\nEnter "<<size<<" elements.";
+  for(index=0;index<size;index++)
+  {
+  	cout<<"\nenter element at a["<<index<<"] :";
+  	cin>>a[index];
+  }
+  
+   large=sec_last=a[0];
+  
+  for (int i = 0; i < size; i++) {
+    if (a[i] > large) {
+        sec_last = large;
+        large = a[i];
+    }
+    else if(a[i] > sec_last && a[i] != large) {
+            sec_last = a[i];
+        }
+   }
+   
+   cout<<"The second largest element is :"<<sec_last;
+}
+
+ 
+
+
+
+//Array Problem no- 5
+
+
+#include<iostream>
+
+using namespace std;
+int main()
+{
+  int a[50],size,index,target; 
+ 
+  cout<<"\nEnter size of array:";
+  cin>>size;
+  
+  cout<<"\nEnter "<<size<<" elements.";
+  for(index=0;index<size;index++)
+  {
+  	cout<<"\nenter element at a["<<index<<"] :";
+  	cin>>a[index];
+  }
+  cout<<"\nEnter the target number :";
+  cin>>target;
+  int count =0;
+  
+  for(int i =0;i<size;i++){
+  	if(a[i]==target){
+  		count++;
+	  }
+  }
+   
+   cout<<"The target "<<target << "  appears"  <<count<<"  times.";
+}
+
+
+
+
+
+//String Problem - 1
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    char input[200];
+    int rep[26] = {0}; 
+
+    cout << "Enter the sentence: ";
+    cin.getline(input, 200);
+
+    int length = 0;
+    for (length = 0; input[length] != '\0'; length++);
+
+    for (int i = 0; i < length; i++) {
+        char c = input[i];
+
+        if (c >= 'A' && c <= 'Z') {
+            c = c + 32;
+        }
+        if (c >= 'a' && c <= 'z') {
+            rep[c - 'a']++;
+        }
+    }
+    int maxFreq = 0;
+    char mostrepChar = 'a';
+
+    for (int i = 0; i < 26; i++) {
+        if (rep[i] > maxFreq) {
+            maxFreq = rep[i];
+            mostrepChar = 'a' + i;
+        }
+    }
+
+    cout << "The most frequent character is '" << mostrepChar << "'." << endl;
+
+    return 0;
+}
+
+
+
+//String Problem - 2
+
+
+#include <iostream>
+using namespace std;
+void sortCharacters(char word[], int wordLength) {
+    for (int i = 0; i < wordLength - 1; i++) {
+        for (int j = i + 1; j < wordLength; j++) {
+            if (word[i] > word[j]) {
+                char tempChar = word[i];
+                word[i] = word[j];
+                word[j] = tempChar;
+            }
+        }
+    }
+}
+
+int main() {
+    char firstWord[100], secondWord[100];
+
+    cout << "Enter first words: ";
+    cin>>firstWord;
+
+    cout << "Enter second words: ";
+    cin>>secondWord;
+
+    int first_Length = 0, second_Length = 0;
+
+    for (first_Length = 0; firstWord[first_Length] != '\0'; first_Length++);
+    for (second_Length = 0; secondWord[second_Length] != '\0'; second_Length++);
+
+    if (first_Length != second_Length) {
+        cout << "The strings are NOT anagrams." << endl;
+        return 0;
+    }
+
+    sortCharacters(firstWord, first_Length);
+    sortCharacters(secondWord, second_Length);
+
+    bool flag = true;
+    for (int index = 0; index < first_Length; index++) {
+        if (firstWord[index] != secondWord[index]) {
+            flag = false;
+            break;
+        }
+    }
+
+    if (flag) {
+        cout << "The words are anagrams." << endl;
+    } else {
+        cout << "The words are NOT anagrams." << endl;
+    }
+
+    return 0;
+}
+
+
+
+//String Problem - 3
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    char input[300];
+
+    cout << "Enter the sentence: ";
+    cin.getline(input, 300);
+
+    int length = 0;
+    int wordCount = 0;
+
+   
+    for (length = 0; input[length] != '\0'; length++);
+
+    for (int i = 0; i < length; i++) {
+        if (input[i] != ' ' && (input[i + 1] == ' ' || input[i + 1] == '\0')) {
+            wordCount++;
+        }
+    }
+
+    cout << "Number of words: " << wordCount << endl;
+
+    return 0;
+}
+
+
+
+
+//String Problem - 4
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    char input[200];
+    char final[200];
+    
+    cout << "Enter the word: ";
+    cin>>input; 
+    int length=0;
+    int j = 0;
+
+
+    for (length = 0; input[length] != '\0'; length++);
+
+    for (int i = 0; i < length; i++) {
+        char c = input[i];
+
+      
+        if (c >= 'A' && c <= 'Z') {
+            final[j] = c + 32;
+        }
+     
+        else if (c >= 'a' && c <= 'z') {
+            final[j] = c - 32;
+        }
+        
+        else {
+            final[j] = c;
+        }
+
+        j++;
+    }
+
+    final[j] = '\0';
+
+    cout << "Entered Word: " << input << endl;
+    cout << "Output Word " << final << endl;
+
+    return 0;
+}
+
+
+
+//String Problem  - 5
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    char input[50];
+    char cr;
+    char final[50];
+
+    cout << "Enter the word: ";
+    cin >> input;
+
+    cout << "Enter the character which is to be removed: ";
+    cin >> cr;
+
+    int j = 0;
+    int length = 0;
+    for (length = 0; input[length] != '\0'; length++);
+
+    for (int i = 0; i < length; i++) {
+        char cc = input[i];
+        if (cc != cr && cc != (cr - 32) && cc != (cr + 32)) {
+            final[j] = cc;
+            j++;
+        }
+    }
+
+    final[j] = '\0';  
+    cout << "Entered Word: " << input << endl;
+    cout << "Removed Character: " << cr << endl;
+    cout << "Final Word: " << final << endl;
+
+    return 0;
+}
+
